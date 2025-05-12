@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <a  target="_blank" href="https://www.youtube.com/"> <h1>Click me</h1> </a>
+        <p style="color: rgb(168, 21, 173);">parrafo con estilo</p>
+        <br>
+        <p title="mouse">parrafo</p>
+        <img class="elemento-rotatorio" width="500" height="auto" src="Leon1bylemmy.png" alt="leon">
+        <div id="contador">Puntos: 0</div>
+    </body>
+    <script>
+const elementoRotatorio = document.querySelector('.elemento-rotatorio');
+const contadorElemento = document.getElementById('contador');
+let angulo = 0;
+let velocidadRotacion = 1;
+const velocidadProyectil = 5;
+let puntos = 0;
+
+function rotar() {
+  angulo += velocidadRotacion;
+  elementoRotatorio.style.transform = `translate(-50%, -50%) rotate(${angulo}deg)`;
+  requestAnimationFrame(rotar);
+}
+
+function crearProyectil() {
+  const proyectil = document.createElement('div');
+  proyectil.classList.add('proyectil');
+
+  const rect = elementoRotatorio.getBoundingClientRect();
+  const centroX = rect.left + rect.width / 2;
+  const centroY = rect.top + rect.height / 2;
+
+  proyectil.style.left = `${centroX - 5}px`;
+  proyectil.style.top = `${centroY - 5}px`;
+
+  document.body.appendChild(proyectil);
+
+  const radianes = angulo * Math.PI / 180;
+  const direccionX = Math.cos(radianes);
+  const direccionY = Math.sin(radianes);
+
+  function animarProyectil() {
+    const posX = parseFloat(proyectil.style.left);
+    const posY = parseFloat(proyectil.style.top);
+
+    proyectil.style.left = `${posX + direccionX * velocidadProyectil}px`;
+    proyectil.style.top = `${posY - direccionY * velocidadProyectil}px`;
+
+    if (posX < 0 || posX > window.innerWidth || posY < 0 || posY > window.innerHeight) {
+      proyectil.remove();
+    } else {
+      requestAnimationFrame(animarProyectil);
+    }
+  }
+
+  animarProyectil();
+
+  // Incrementar el contador de puntos y actualizar el elemento HTML
+  puntos++;
+  contadorElemento.textContent = `Puntos: ${puntos}`;
+}
+
+rotar();
+
+elementoRotatorio.addEventListener('click', crearProyectil);
+    </script>
+</html>

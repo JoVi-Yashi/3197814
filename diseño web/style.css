@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+
+.comic-relief-regular 
+{
+    font-family: "Comic Relief", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+  .comic-relief-bold 
+{
+    font-family: "Comic Relief", system-ui;
+    font-weight: 700;
+    font-style: normal;
+}
+  
+
+h1 
+{
+    background-color: #ea92fc;
+    border: solid 3px, #e36efa;
+    border-radius: 7px;
+    text-align: center;
+    font-family: Comic Relief;
+}
+html
+{
+    background: #fcedff;
+    font-family: Comic Relief;
+}
+
+hr
+{
+    color: #a100c2;
+    background-color: #a100c2;
+}
+
+.elemento-rotatorio 
+{
+    width: 70px; /* Reducimos un poco el tamaño para que los proyectiles sean más visibles */
+    height: auto;
+    background-color: lightblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+   
+    cursor: pointer; /* Indicar que es interactivo */
+    
+  }
+
+  .proyectil 
+{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}
+#contador 
+{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    color: black;
+}
+
+h2
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #790491;
+}
+
+h3
+{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #4557ff;
+}
+
+h4
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #53c762;
+}
+
+h5
+{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #d3ba30;
+}
+
+h6
+{
+    font-family: 'Times New Roman', Times, serif;
+    color: #580300;
+}
